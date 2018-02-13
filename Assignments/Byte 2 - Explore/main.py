@@ -32,11 +32,11 @@ API_KEY = 'AIzaSyD7-s34IPH9FexKx24wkaZTGrYd-M1OFY4'
 service = build('fusiontables', 'v1', developerKey=API_KEY)
 
 # This is the table id for the fusion table
-TABLE_ID = '1VlPiBCkYt_Vio-JT3UwM-U__APurJvPb6ZEJPg'
+TABLE_ID = '1aYWOxvoG4DMHrd9u0lbMd2nBDgKv_8JHkKaWTRaH'
 
 # This is the default columns for the query
 query_cols = []
-query_values = ['Forlan'] #Change to be the value(s) you're querying in the column you've specified
+query_values = ['-10.5'] #Change to be the value(s) you're querying in the column you've specified
 
 # Import the Flask Framework
 from flask import Flask, request
@@ -44,10 +44,10 @@ app = Flask(__name__)
 
 def get_all_data(query):
     #Example from the assignment instructions
-    #query = "SELECT * FROM " + TABLE_ID + " WHERE  Scorer = 'Forlan' LIMIT 2"
-    #response = service.query().sql(sql=query).execute()
-    #logging.info(response['columns'])
-    #logging.info(response['rows'])
+    query = "SELECT * FROM " + TABLE_ID + " WHERE  Ave = '-10.5'"
+    response = service.query().sql(sql=query).execute()
+    logging.info(response['columns'])
+    logging.info(response['rows'])
     
     response = service.query().sql(sql=query).execute()
     logging.info(response['columns'])
